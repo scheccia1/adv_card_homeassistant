@@ -1,0 +1,52 @@
+type: custom:button-card
+name: Portone
+entity: group.button_2
+icon: mdi:door
+tap_action:
+  action: toggle
+custom_fields:
+  temp: |
+    [[[ return states['sensor.sensore_temp_2'].state + '°C' ]]]
+styles:
+  card:
+    - padding: 1px 1px 1px 2px
+    - min-width: 100%
+    - aspect-ratio: 1 / 1;
+  custom_fields:
+    temp:
+      - position: absolute
+      - left: null
+      - top: 30%
+      - height: 14%
+      - align-self: start
+      - justify-self: start
+      - font-size: 0.7rem
+      - opacity: "0.7"
+      - padding-top: 0px
+      - margin-left: 8px
+      - text-overflow: ellipsis
+      - overflow: hidden
+      - color: "#768ec0"
+  name:
+    - position: absolute
+    - left: 7%
+    - top: 10%
+    - font-size: 14px
+    - font-weight: 500
+    - color: "#768ec0"
+  img_cell:
+    - border-radius: 20%
+    - width: 70%
+    - height: 70%
+    - max-width: none
+    - max-height: none
+    - position: absolute
+    - left: "-15.5%"
+    - top: 48.5%
+    - background-color: "#343b48"
+  icon:
+    - position: absolute
+    - width: 40%
+    - left: 40%
+    - bottom: 10%
+    - color: "#768ec0"

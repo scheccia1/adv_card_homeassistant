@@ -1,0 +1,118 @@
+type: custom:button-card
+name: Corridoio
+icon: mdi:coat-rack
+custom_fields:
+  temp: >
+    [[[ return states['sensor.sensore_temp_1'].state + '°C' + ' |
+    '+states['sensor.sensore_umidita_1'].state + '%' ]]]
+  btn1:
+    card:
+      type: custom:mushroom-light-card
+      entity: group.sensore_pulsante1_1
+      icon: mdi:light-recessed
+      primary_info: none
+      secondary_info: none
+      tap_action:
+        action: toggle
+      card_mod:
+        style:
+          mushroom-shape-icon$: |
+            .shape {
+              box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.36) !important;
+              --icon-size: 3.1rem;#45px;
+              --shape-color: #48422f !important;
+              --icon-color: #c2ab60;
+            }
+            .shape.disabled {
+             box-shadow: 0px 0px  !important;
+            }
+          style: |
+            ha-card {
+             background: none;
+             border: none;
+            }
+  btn2:
+    card:
+      type: custom:mushroom-light-card
+      entity: group.sensore_pulsante2_1
+      icon: mdi:light-recessed
+      primary_info: none
+      secondary_info: none
+      tap_action:
+        action: toggle
+      card_mod:
+        style:
+          mushroom-shape-icon$: |
+            .shape {
+              box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.36) !important;     
+              --icon-size: 3.1rem;#45px;
+              --shape-color: #48422f !important;
+              --icon-color: #c2ab60;
+            }
+            .shape.disabled {
+              box-shadow: 0px 0px  !important;     
+            }
+          style: |
+            ha-card {
+                background: none;
+                border: none;
+                }
+styles:
+  grid:
+    - grid-template-areas: "'n n n n' 'l l l btn1' 'i i . btn2' 'i i . btn3'"
+    - grid-template-columns: 1fr 1fr 1fr 1fr
+  card:
+    - padding: 1px 1px 1px 2px
+    - height: 100%
+    - min-height: 200px
+    - width: auto
+  custom_fields:
+    temp:
+      - position: absolute
+      - left: 4%
+      - top: 22%
+      - height: 14%
+      - align-self: start
+      - justify-self: start
+      - font-size: 0.9rem
+      - opacity: "0.7"
+      - padding-top: 0px
+      - margin-left: 8px
+      - text-overflow: ellipsis
+      - overflow: hidden
+      - color: "#c2ab60"
+    btn1:
+      - grid-area: btn1
+      - justify-content: center
+      - align-self: start
+    btn2:
+      - grid-area: btn2
+      - justify-content: center
+      - align-self: start
+    btn3:
+      - grid-area: btn3
+      - justify-content: center
+      - align-self: start
+  name:
+    - position: absolute
+    - left: 7%
+    - top: 10%
+    - font-size: 18px
+    - font-weight: 500
+    - color: "#c2ab60"
+  img_cell:
+    - border-radius: 30%
+    - width: 60%
+    - height: 60%
+    - max-width: none
+    - max-height: none
+    - position: absolute
+    - left: "-15.5%"
+    - top: 55.5%
+    - background-color: "#48422f"
+  icon:
+    - position: absolute
+    - width: 40%
+    - left: 40%
+    - bottom: 10%
+    - color: "#c2ab60"
