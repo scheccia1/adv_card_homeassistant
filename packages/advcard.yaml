@@ -1,0 +1,70 @@
+################################################
+#											   #
+# Package Advanced Custom Card      		   #
+# Autore: Agostino Pitasi                      #
+# 											   #
+################################################
+
+homeassistant:
+  time_zone: Europe/Rome
+  customize:
+    package.node_anchors:
+      customize: &customize
+      
+        package: "Advanced Custom Card 1.0"
+        author: "Agostino Pitasi"
+      setting:
+        Sensore Temperatura_1: &sensore_temperatura_1 "{{ states('sensor.lumi_bagno_temperature') }}" #temp bagno
+        Sensore Umidita_1: &sensore_umidita_1 "{{ states('sensor.lumi_bagno_humidity') }}" #umidità bagno
+        Sensore Pulsante1_1: &sensore_pulsante1_1 switch.XXXX  #luce bagno
+        Sensore Pulsante2_1: &sensore_pulsante2_1 light.XXXX #aspiratore bagno
+        Sensore Pulsante3_1: &sensore_pulsante3_1 switch.XXXX
+		
+        Sensore Temperatura_2: &sensore_temperatura_2 "{{ states('sensor.lumi_soggiorno_temperature') }}" #temp sogg-cucina
+        Sensore Umidita_2: &sensore_umidita_2 "{{ states('sensor.lumi_soggiorno_humidity') }}" #umidità sogg-cucina
+        Sensore Pulsante1_2: &sensore_pulsante1_2 switch.XXXX  #luce cucina
+        Sensore Pulsante2_2: &sensore_pulsante2_2 switch.XXXX #led penisola
+        Sensore Pulsante3_2: &sensore_pulsante3_2 switch.XXXX
+		
+sensor:
+  - platform: template
+    sensors:
+      sensore_temp_1:
+        value_template: *sensore_temperatura_1
+  - platform: template
+    sensors:
+      sensore_umidita_1:
+        value_template: *sensore_umidita_1
+
+  - platform: template
+    sensors:
+      sensore_temp_2:
+        value_template: *sensore_temperatura_2
+  - platform: template
+    sensors:
+      sensore_umidita_2:
+        value_template: *sensore_umidita_2
+		
+
+group:
+  sensore_pulsante1_1:
+    entities:
+     - *sensore_pulsante1_1
+  sensore_pulsante2_1:
+    entities:
+     - *sensore_pulsante2_1
+  sensore_pulsante3_1:
+    entities:
+     - *sensore_pulsante3_1
+     
+  sensore_pulsante1_2:
+    entities:
+     - *sensore_pulsante1_2
+  sensore_pulsante2_2:
+    entities:
+     - *sensore_pulsante2_2
+  sensore_pulsante3_2:
+    entities:
+     - *sensore_pulsante3_2
+        
+  
