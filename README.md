@@ -33,3 +33,8 @@ style: |
 	{% endif %}
  </code>
 
+i codici colori usati nelle schede sono: <br>
+blu -> #343b48 - #768ec0 <br>
+verde -> #343f36 - #759f7b <br>
+giallo -> #48422f - #c2ab60 <br>
+rosso -> #453432 - #b4756d <br>
